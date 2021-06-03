@@ -1,22 +1,26 @@
 import React, { useCallback, useState } from 'react';
 import { uuid } from 'uuidv4';
 import Layout from '../../components/Layout';
-// import TodoList from '../../components/TodoList';
+import TodoList from '../../components/TodoList';
 import TodoContainer from './styles';
 
-interface todoProps {
+interface TodoProps {
   id: string;
   content: string;
+  complete: boolean;
 }
 
 const Todo: React.FC = () => {
   const [newTodo, setNewTodo] = useState('');
-  const [todoList, setTodoList] = useState<todoProps[]>([] as todoProps[]);
+  const [todoList, setTodoList] = useState<TodoProps[]>([] as TodoProps[]);
 
   const addTodo = useCallback(() => {
     const newTudoList = todoList;
     if (newTodo && newTudoList) {
-      setTodoList([...newTudoList, { id: uuid(), content: newTodo }]);
+      setTodoList([
+        ...newTudoList,
+        { id: uuid(), content: newTodo, complete: false },
+      ]);
       setNewTodo(``);
     }
   }, [newTodo, todoList]);
@@ -38,21 +42,23 @@ const Todo: React.FC = () => {
     <Layout>
       <TodoContainer>
         <h1>TODO PAGE</h1>
-        <input
-          placeholder="New an intem..."
-          onChange={e => updateInput(e.target.value)}
-          onKeyPress={addTodoOnEnter}
-          value={newTodo}
-        />
-        <button type="button" onClick={addTodo}>
-          Add todo
-        </button>
-        <ul>
+        <form>
+          <input
+            placeholder="New an intem..."
+            onChange={e => updateInput(e.target.value)}
+            onKeyPress={addTodoOnEnter}
+            value={newTodo}
+          />
+          <button type="button" onClick={addTodo}>
+            Add todo
+          </button>
+        </form>
+        {/* <ul>
           {todoList
             ? todoList.map(item => <li key={item.id}>{item.content}</li>)
             : null}
-        </ul>
-        {/* <TodoList tudoList={todoList} /> */}
+        </ul> */}
+        <TodoList todoList={todoList} />
       </TodoContainer>
     </Layout>
   );
