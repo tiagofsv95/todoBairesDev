@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { FaTrash } from 'react-icons/fa';
-import { GrRefresh } from 'react-icons/gr';
+import { FaTrash, FaUndo } from 'react-icons/fa';
 import { AppDispatch } from '../../store';
 import { removeTodo, toggleTodo } from '../../store/todo';
 import {
@@ -42,7 +41,7 @@ const DoneList: React.FC<DoneListProps> = ({ doneList }: DoneListProps) => {
           ? doneList.map(item => (
               <DoneListComponentItens key={item.id}>
                 <DoneListRevert onClick={() => handleToggleTodo(item.id)}>
-                  <GrRefresh />
+                  <FaUndo />
                 </DoneListRevert>
                 <DoneListContent>{item.content}</DoneListContent>
                 <DoneListRemoveButton onClick={() => handleRemoveTodo(item.id)}>

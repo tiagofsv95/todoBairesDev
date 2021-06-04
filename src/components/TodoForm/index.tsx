@@ -4,6 +4,7 @@ import { AppDispatch } from '../../store';
 import { addTodo } from '../../store/todo';
 import {
   TodoFormContainer,
+  TodoFormTitle,
   TodoFormComponent,
   TodoFormInput,
   TodoFormAddButton,
@@ -37,7 +38,7 @@ const TodoForm: React.FC = () => {
 
   return (
     <TodoFormContainer>
-      <h1>TODO PAGE</h1>
+      <TodoFormTitle>TODO PAGE</TodoFormTitle>
       <TodoFormComponent>
         <TodoFormInput
           placeholder="New an intem..."
@@ -46,7 +47,7 @@ const TodoForm: React.FC = () => {
           value={newTodo}
         />
         <TodoFormAddButton type="button" onClick={handleAddTodo}>
-          Add todo
+          Add
         </TodoFormAddButton>
       </TodoFormComponent>
     </TodoFormContainer>
