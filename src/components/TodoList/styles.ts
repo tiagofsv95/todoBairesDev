@@ -19,3 +19,14 @@ export const TodoListCheckbox = styled.input`
   width: 1rem;
   margin-right: 0.5rem;
 `;
+
+export const TodoListContent = styled.span``;
+
+export const TodoListRemoveButton = styled.button`
+  margin-left: 0.5rem;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  height: 1.5rem;
+  height: 1.5rem;
+`;

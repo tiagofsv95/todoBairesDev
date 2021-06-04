@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { FaTrash } from 'react-icons/fa';
+import { AppDispatch } from '../../store';
+import { removeTodo, toggleTodo } from '../../store/todo';
 import {
   TodoListContainer,
   TodoListComponent,
   TodoListComponentItens,
   TodoListCheckbox,
+  TodoListContent,
+  TodoListRemoveButton,
 } from './styles';
+import { TodoProps } from '../../interfaces/todo';
 
-interface TodoItemProps {
-  id: string;
-  content: string;
-  complete: boolean;
+interface TodoListProps {
+  todoList: TodoProps[];
 }
 
-interface TodoProps {
-  todoList: TodoItemProps[];
-}
+const TodoList: React.FC<TodoListProps> = ({ todoList }: TodoListProps) => {
+  const dispatch = useDispatch<AppDispatch>();
 
-const TodoList: React.FC<TodoProps> = ({ todoList }: TodoProps) => {
+  const handleToggleTodo = useCallback(
+    (id: string) => {
+      dispatch(toggleTodo(id));
+    },
+    [dispatch],
+  );
+
+  const handleRemoveTodo = useCallback(
+    (id: string) => {
+      dispatch(removeTodo(id));
+    },
+    [dispatch],
+  );
+
   return (
     <TodoListContainer>
       <TodoListComponent>
@@ -28,8 +45,12 @@ const TodoList: React.FC<TodoProps> = ({ todoList }: TodoProps) => {
                   id="scales"
                   name="scales"
                   checked={item.complete}
+                  onChange={() => handleToggleTodo(item.id)}
                 />
-                {item.content}
+                <TodoListContent>{item.content}</TodoListContent>
+                <TodoListRemoveButton onClick={() => handleRemoveTodo(item.id)}>
+                  <FaTrash />
+                </TodoListRemoveButton>
               </TodoListComponentItens>
             ))
           : null}
