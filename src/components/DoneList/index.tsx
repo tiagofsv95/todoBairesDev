@@ -7,6 +7,7 @@ import {
   DoneListContainer,
   DoneListComponent,
   DoneListComponentItens,
+  DoneListComponentItensRight,
   DoneListRevert,
   DoneListContent,
   DoneListRemoveButton,
@@ -40,10 +41,12 @@ const DoneList: React.FC<DoneListProps> = ({ doneList }: DoneListProps) => {
         {doneList
           ? doneList.map(item => (
               <DoneListComponentItens key={item.id}>
-                <DoneListRevert onClick={() => handleToggleTodo(item.id)}>
-                  <FaUndo />
-                </DoneListRevert>
-                <DoneListContent>{item.content}</DoneListContent>
+                <DoneListComponentItensRight>
+                  <DoneListRevert onClick={() => handleToggleTodo(item.id)}>
+                    <FaUndo />
+                  </DoneListRevert>
+                  <DoneListContent>{item.content}</DoneListContent>
+                </DoneListComponentItensRight>
                 <DoneListRemoveButton onClick={() => handleRemoveTodo(item.id)}>
                   <FaTrash />
                 </DoneListRemoveButton>

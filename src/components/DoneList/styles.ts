@@ -6,12 +6,20 @@ export const DoneListComponent = styled.ul`
   display: flex;
   flex-direction: column;
   list-style-type: none;
+  min-width: 20rem;
+  max-width: 25rem;
 `;
 
 export const DoneListComponentItens = styled.li`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 1rem;
+`;
+
+export const DoneListComponentItensRight = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const DoneListRevert = styled.button`

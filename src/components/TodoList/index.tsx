@@ -7,6 +7,7 @@ import {
   TodoListContainer,
   TodoListComponent,
   TodoListComponentItens,
+  TodoListComponentItensRight,
   TodoListCheckbox,
   TodoListContent,
   TodoListRemoveButton,
@@ -40,15 +41,22 @@ const TodoList: React.FC<TodoListProps> = ({ todoList }: TodoListProps) => {
         {todoList
           ? todoList.map(item => (
               <TodoListComponentItens key={item.id}>
-                <TodoListCheckbox
-                  type="checkbox"
-                  id="scales"
-                  name="scales"
-                  checked={item.complete}
-                  onChange={() => handleToggleTodo(item.id)}
-                />
-                <TodoListContent>{item.content}</TodoListContent>
-                <TodoListRemoveButton onClick={() => handleRemoveTodo(item.id)}>
+                <TodoListComponentItensRight>
+                  <TodoListCheckbox
+                    type="checkbox"
+                    id="scales"
+                    name="scales"
+                    checked={item.complete}
+                    onChange={() => handleToggleTodo(item.id)}
+                  />
+                  <TodoListContent isChecked={item.complete}>
+                    {item.content}
+                  </TodoListContent>
+                </TodoListComponentItensRight>
+                <TodoListRemoveButton
+                  isChecked={item.complete}
+                  onClick={() => handleRemoveTodo(item.id)}
+                >
                   <FaTrash />
                 </TodoListRemoveButton>
               </TodoListComponentItens>

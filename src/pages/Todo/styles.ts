@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const TodoContainer = styled.div`
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 `;
 
 export default TodoContainer;
