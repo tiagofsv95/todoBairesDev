@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-const Layout = styled.div``;
+const LayoutDiv = styled.div``;
 
-export default Layout;
+export default LayoutDiv;

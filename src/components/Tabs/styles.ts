@@ -6,8 +6,6 @@ export const TabContainer = styled.div``;
 export const TabList = styled.ul`
   display: flex;
   list-style-type: none;
-  border-bottom: 1px solid #ccc;
-  overflow-x: auto;
 `;
 
 export const TabListItem = styled.li`

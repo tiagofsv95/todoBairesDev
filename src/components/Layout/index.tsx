@@ -1,12 +1,11 @@
 import React from 'react';
 import LayoutDiv from './styles';
-import Tabs from '../Tabs';
+import Header from '../Header';
 
-// eslint-disable-next-line react/prop-types
 const Layout: React.FC = ({ children }) => {
   return (
     <LayoutDiv>
-      <Tabs />
+      <Header />
       {children}
     </LayoutDiv>
   );
