@@ -10,8 +10,13 @@ export const TodoListComponent = styled.ul`
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  min-width: 20rem;
-  max-width: 25rem;
+  @media (min-width: 321px) {
+    min-width: 20rem;
+    max-width: 25rem;
+  }
+  min-width: 15rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 `;
 
 export const TodoListComponentItens = styled.li`
@@ -31,6 +36,7 @@ export const TodoListCheckbox = styled.input`
 `;
 
 export const TodoListContent = styled.span<IsCheckedProps>`
+  color: ${props => props.theme.colors.primaryText};
   ${props =>
     props.isChecked &&
     css`
@@ -46,7 +52,7 @@ export const TodoListRemoveButton = styled.button<IsCheckedProps>`
   color: #ffffff;
   height: 1.5rem;
   height: 1.5rem;
-
+  color: ${props => props.theme.colors.primaryText};
   ${props =>
     props.isChecked &&
     css`

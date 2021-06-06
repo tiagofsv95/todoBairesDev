@@ -26,18 +26,20 @@ export const DoneListRevert = styled.button`
   margin-right: 0.5rem;
   border: none;
   background-color: transparent;
-  color: #ffffff;
+  color: ${props => props.theme.colors.primaryText};
   height: 1.5rem;
   height: 1.5rem;
 `;
 
-export const DoneListContent = styled.span``;
+export const DoneListContent = styled.span`
+  color: ${props => props.theme.colors.primaryText};
+`;
 
 export const DoneListRemoveButton = styled.button`
   margin-left: 0.5rem;
   border: none;
   background-color: transparent;
-  color: #ffffff;
+  color: ${props => props.theme.colors.primaryText};
   height: 1.5rem;
   height: 1.5rem;
 `;

@@ -8,4 +8,6 @@ export const DoneContainer = styled.div`
   align-items: center;
 `;
 
-export const DoneTitle = styled.h1``;
+export const DoneTitle = styled.h1`
+  color: ${props => props.theme.colors.primaryText};
+`;

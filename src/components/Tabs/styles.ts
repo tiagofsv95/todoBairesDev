@@ -19,6 +19,6 @@ export const TabListItem = styled.li`
 `;
 
 export const TabNavLink = styled(Link)`
-  color: white;
+  color: ${props => props.theme.colors.primaryText};
   text-decoration: none;
 `;
