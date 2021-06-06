@@ -41,7 +41,7 @@ const TodoForm: React.FC = () => {
       <TodoFormTitle>TODO PAGE</TodoFormTitle>
       <TodoFormComponent>
         <TodoFormInput
-          placeholder="New an intem..."
+          placeholder="New an item..."
           onChange={e => updateInput(e.target.value)}
           onKeyPress={handleAddTodoOnEnter}
           value={newTodo}
