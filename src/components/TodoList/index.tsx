@@ -37,23 +37,25 @@ const TodoList: React.FC<TodoListProps> = ({ todoList }: TodoListProps) => {
 
   return (
     <TodoListContainer>
-      <TodoListComponent>
+      <TodoListComponent data-testid="todo-list-ul">
         {todoList
           ? todoList.map(item => (
               <TodoListComponentItens key={item.id}>
                 <TodoListComponentItensRight>
                   <TodoListCheckbox
+                    data-testid={`todo-list-checkbox-${item.id}`}
                     type="checkbox"
                     id="scales"
                     name="scales"
                     checked={item.complete}
                     onChange={() => handleToggleTodo(item.id)}
                   />
-                  <TodoListContent isChecked={item.complete}>
+                  <TodoListContent id={item.id} isChecked={item.complete}>
                     {item.content}
                   </TodoListContent>
                 </TodoListComponentItensRight>
                 <TodoListRemoveButton
+                  data-testid={`todo-list-button-remove-${item.id}`}
                   isChecked={item.complete}
                   onClick={() => handleRemoveTodo(item.id)}
                 >

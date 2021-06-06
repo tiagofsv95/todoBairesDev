@@ -41,12 +41,17 @@ const TodoForm: React.FC = () => {
       <TodoFormTitle>TODO PAGE</TodoFormTitle>
       <TodoFormComponent>
         <TodoFormInput
+          data-testid="todo-form-input"
           placeholder="New an item..."
           onChange={e => updateInput(e.target.value)}
           onKeyPress={handleAddTodoOnEnter}
           value={newTodo}
         />
-        <TodoFormAddButton type="button" onClick={handleAddTodo}>
+        <TodoFormAddButton
+          data-testid="todo-form-button"
+          type="button"
+          onClick={handleAddTodo}
+        >
           Add
         </TodoFormAddButton>
       </TodoFormComponent>
